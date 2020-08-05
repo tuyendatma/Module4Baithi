@@ -36,7 +36,7 @@ public class CityController {
     @PostMapping(value = "/createcity")
     public String postCreate(@ModelAttribute("city") City city, Model model) {
         if (city != null) {
-//            System.out.println(city.getDes());
+            System.out.println(city.getDes());
             cityService.save(city);
             model.addAttribute("message", "thêm thành công ");
         }
@@ -68,6 +68,7 @@ public class CityController {
 //            return modelAndView;
 //        }
 //    }
+//
 //    @PostMapping("/edit/city")
 //    public String editCity(@ModelAttribute("city") City city){
 //        cityService.save(city);

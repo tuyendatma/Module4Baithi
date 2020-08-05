@@ -6,17 +6,19 @@
 </head>
 <body>
 <ul>
-    <li><a th:href="@{/}">danh sach thanh pho</a></li>
+    <li><a th:href="@{/}">danh sách thành phố</a></li>
 </ul>
-<h6 >danh sach thanh pho</h6>
+<h1>Chi tiết thành phố</h1>
 <div th:object="${city}">
     <p>ten: <span th:text="*{name}"></span></p>
     <p>quoc gia: <span th:text="*{nation.name}"></span></p>
     <p>dien tich: <span th:text="*{area}"></span></p>
     <p>dan so: <span th:text="*{population}"></span></p>
     <p>gdp: <span th:text="*{gdp}"></span></p>
-    <p>gioi thieu: <span th:text="*{des}"></span></p>
-    <div><a  th:href="@{/edit/city/__${city.id}__ }">chỉnh sửa</a><a  th:href="@{/delete/city/__${city.id}__ }"  th:onclick="return confirm('ban co chac muon xoa')">xoa</a></div>
+    <p>Giới thiệu: <span th:text="*{des}"></span></p>
+    <div><button><a  th:href="@{/edit/city/__${city.id}__ }">chỉnh sửa</a></button>
+        <button><a  th:href="@{/delete/city/__${city.id}__ }"  th:onclick="return confirm('bạn có chắc muốn xóa')">xóa</a></button>
+    </div>
 </div>
 </body>
 </html>

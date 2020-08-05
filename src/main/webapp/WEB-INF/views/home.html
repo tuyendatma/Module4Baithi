@@ -3,20 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+        table, th, td{
+            border:1px solid #868585;
+        }
+        table{
+            border-collapse:collapse;
+            width:100%;
+        }
+        th, td{
+            text-align:left;
+            padding:10px;
+        }
+        table tr:nth-child(odd){
+            background-color:#eee;
+        }
+        table tr:nth-child(even){
+            background-color:white;
+        }
+        table tr:nth-child(1){
+            background-color:skyblue;
+        }
+    </style>
 </head>
 <body>
 <ul>
-    <li><a th:href="@{/createcity}">them thanh pho</a></li>
+    <li><a th:href="@{/createcity}">Thêm thành phố</a></li>
 </ul>
 
-<h6 >danh sach thanh pho</h6>
+<h1 >Danh sách thành phố</h1>
 <div>
     <table class="table">
         <tr>
             <td>#</td>
-            <td>thanh pho</td>
-            <td>quoc gia</td>
-            <td></td>
+            <td>Thành phố</td>
+            <td>Quốc gia</td>
+            <td>Chức năng</td>
         </tr>
         <tr style="border: 1px" th:object="${cities}" th:each="c,start:${cities}">
             <td th:text="${start.index}"></td>
