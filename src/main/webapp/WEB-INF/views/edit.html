@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Sửa thông tin thành phố</h3>
+<p th:text="${message}"></p>
+<form action="@{/createcity}" th:object="${city}" method="post">
+
+    <table>
+        <tr>
+            <td>Tên thành phố</td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td><input th:type="hidden" name="id" th:field="*{id}"></td>
+        </tr>
+        <tr>
+            <td>Quốc gia</td>
+            <td>
+                <select name="nation" id="nation">
+                    <option th:each="c,categoryStat:${nations}" th:value="${c.getId()}" th:text="${c.getName()}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Diện tích</td>
+            <td><input type="text" th:field="*{area}"></td>
+        </tr>
+        <tr>
+            <td>Dân số</td>
+            <td><input type="text" th:field="*{population}"></td>
+        </tr>
+        <tr>
+            <td>GDP</td>
+            <td><input type="text" th:field="*{gdp}"></td>
+        </tr>
+        <tr>
+            <td>Giới thiệu</td>
+            <td><input type="text" th:field="*{des}"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Lưu"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

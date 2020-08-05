@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li><a th:href="@{/createcity}">them thanh pho</a></li>
+</ul>
+
+<h6 >danh sach thanh pho</h6>
+<div>
+    <table class="table">
+        <tr>
+            <td>#</td>
+            <td>thanh pho</td>
+            <td>quoc gia</td>
+            <td></td>
+        </tr>
+        <tr style="border: 1px" th:object="${cities}" th:each="c,start:${cities}">
+            <td th:text="${start.index}"></td>
+            <td><a th:href="@{/view/city/__${c.id}__ }" th:text="${c.name}"></a></td>
+            <td th:text="${c.getNation().name}"></td>
+            <td><a th:href="@{/edit/city/__${c.id}__ }">sua</a>|<a th:href="@{/delete/city/__${c.id}__ }">xoa</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
